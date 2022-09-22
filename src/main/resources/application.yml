@@ -1,0 +1,13 @@
+spring:
+  batch:
+    job:
+      names: ${job.name:helloWorldJob}
+    jdbc:
+      initialize-schema: ALWAYS # 기록이 되는 데이터베이스를 자동으로 생성하게 해라.
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/app_2022_09_22?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password:
+  jpa:
+    show-sql: true
