@@ -20,6 +20,7 @@ import static javax.persistence.CascadeType.ALL;
 @SuperBuilder
 @ToString(callSuper = true)
 public class Product extends BaseEntity {
+    private int salePrice;
     private int price;
     private int wholesalePrice;
     private String name;
@@ -32,6 +33,8 @@ public class Product extends BaseEntity {
 
     public void addOption(ProductOption option) {
         option.setProduct(this);
+        option.setSalePrice(getSalePrice());
+        option.setWholesalePrice(getWholesalePrice());
         option.setPrice(getPrice());
 
         productOptions.add(option);
