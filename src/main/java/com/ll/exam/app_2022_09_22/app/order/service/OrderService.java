@@ -22,6 +22,7 @@ public class OrderService {
     private final CartService cartService;
     private final OrderRepository orderRepository;
 
+    @Transactional
     public Order createFromCart(Member member) {
 
         // 입력된 회원 장바구니 아이템 전부 가져오기

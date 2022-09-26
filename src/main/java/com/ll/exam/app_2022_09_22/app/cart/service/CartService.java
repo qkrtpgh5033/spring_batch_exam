@@ -6,6 +6,7 @@ import com.ll.exam.app_2022_09_22.app.member.entity.Member;
 import com.ll.exam.app_2022_09_22.app.product.entity.ProductOption;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,9 +39,10 @@ public class CartService {
     }
 
     public List<CartItem> getItemsByMember(Member member) {
-        return cartItemRepository.findByMemberId(member.getId());
+        return cartItemRepository.findAllByMemberId(member.getId());
     }
 
+    @Transactional
     public void deleteItem(CartItem cartItem) {
         cartItemRepository.delete(cartItem);
     }
