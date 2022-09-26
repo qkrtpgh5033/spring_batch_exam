@@ -36,4 +36,12 @@ public class CartService {
 
         cartItemRepository.save(cartItem);
     }
+
+    public List<CartItem> getItemsByMember(Member member) {
+        return cartItemRepository.findByMemberId(member.getId());
+    }
+
+    public void deleteItem(CartItem cartItem) {
+        cartItemRepository.delete(cartItem);
+    }
 }
